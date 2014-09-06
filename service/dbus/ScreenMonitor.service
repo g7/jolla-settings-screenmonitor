@@ -1,0 +1,12 @@
+[Unit]
+Description=ScreenMonitor
+Requires=mce.service
+Requires=usb-moded.service
+
+[Service]
+Type=dbus
+BusName=eu.medesimo.ScreenMonitor
+ExecStart=/usr/bin/ScreenMonitor --dbus
+
+[Install]
+WantedBy=graphical.target

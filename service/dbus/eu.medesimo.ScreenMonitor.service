@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=eu.medesimo.ScreenMonitor
+Exec=/usr/bin/ScreenMonitor
+User=root
