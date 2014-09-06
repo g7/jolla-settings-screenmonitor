@@ -14,7 +14,7 @@ Name:       jolla-settings-screenmonitor
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    jolla-settings-screenmonitor
 Version:    1.0
-Release:    1
+Release:    3
 Group:      Applications/System
 License:    GPL2
 URL:        http://me.medesimo.eu
@@ -60,12 +60,12 @@ rm -rf %{buildroot}
 
 %preun
 # >> preun
-systemctl disable ScreenMonitor.service
+/bin/systemctl disable ScreenMonitor.service
 # << preun
 
 %post
 # >> post
-systemctl enable ScreenMonitor.service
+/bin/systemctl enable ScreenMonitor.service
 # << post
 
 %files

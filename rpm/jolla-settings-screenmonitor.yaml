@@ -1,7 +1,7 @@
 Name: jolla-settings-screenmonitor
 Summary: jolla-settings-screenmonitor
 Version: 1.0
-Release: 1
+Release: 3
 # The contents of the Group field should be one of the groups listed here:
 # http://gitorious.org/meego-developer-tools/spectacle/blobs/master/data/GROUPS
 Group: Applications/System
@@ -33,7 +33,7 @@ PkgBR:
 
 # Runtime dependencies which are not automatically detected
 Requires:
-  - sailfishsilica-qt5 >= 0.10.9 
+  - sailfishsilica-qt5 >= 0.10.9
 
 # All installed files
 Files:
