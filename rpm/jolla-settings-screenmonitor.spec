@@ -13,7 +13,7 @@ Name:       jolla-settings-screenmonitor
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    jolla-settings-screenmonitor
-Version:    0.2
+Version:    1.0
 Release:    1
 Group:      Applications/System
 License:    GPL2

@@ -8,16 +8,6 @@
 # after all :D) so the TEMPLATE here is set to aux and the ScreenMonitor
 # target will call make on the vala sources.
 
-# NOTICE:
-#
-# Application name defined in TARGET has a corresponding QML filename.
-# If name defined in TARGET is changed, the following needs to be done
-# to match new name:
-#   - corresponding QML filename must be changed
-#   - desktop icon filename must be changed
-#   - desktop filename must be changed
-#   - icon definition filename in desktop file must be changed
-#   - translation filenames have to be changed
 TEMPLATE = aux
 
 TARGET = jolla-settings-screenmonitor
@@ -57,6 +47,7 @@ OTHER_FILES += \
     rpm/jolla-settings-screenmonitor.yaml \
 	service/dbus_interface.vala \
 	service/ScreenMonitor.vala \
+	service/ScreenMonitor \
 	service/UnixTimer.vala \
 	service/service.vala \
 	service/Makefile \
