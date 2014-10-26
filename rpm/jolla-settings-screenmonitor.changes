@@ -1,0 +1,27 @@
+# Rename this file as jolla-settings-screenmonitor.changes to include changelog
+# entries in your RPM file.
+#
+# Add new changelog entries following the format below.
+# Add newest entries to the top of the list.
+# Separate entries from eachother with a blank line.
+
+# * date Author's Name <author's email> version-release
+# - Summary of changes
+
+* Sun Oct 26 2014 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.1-1
+- jolla-settings-screenmonitor.qml: Switch from AboutItem to DetailItem.
+Since Uitukka the jolla-settings specific AboutItem has been replaced with a generic
+item in Silica, called DetailItem.
+.
+A fake DetailItem widget has been included for Tahkalampi and earlier releases.
+This widget will seamlessly switch to jolla-settings's AboutItem to retain a
+consistent interface with other control center modules.
+
+- jolla-settings-screenmonitor.qml: Added BatteryPercentage DetailItem.
+
+- jolla-settings-screenmonitor.qml: do not trust percentages > 100%
+
+* Sat Sep 06 2014 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.0-4
+- Initial public release.
+
+

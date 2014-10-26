@@ -42,7 +42,6 @@ INSTALLS += \
 	screenmonitor-systemd
 
 OTHER_FILES += \
-    rpm/jolla-settings-screenmonitor.changes.in \
     rpm/jolla-settings-screenmonitor.spec \
     rpm/jolla-settings-screenmonitor.yaml \
 	service/dbus_interface.vala \
@@ -55,7 +54,8 @@ OTHER_FILES += \
 	service/dbus/eu.medesimo.ScreenMonitor.conf \
 	service/dbus/Makefile \
     service/UnixTimer.vala \
-    settings/DetailItem.qml
+    settings/DetailItem.qml \
+    rpm/jolla-settings-screenmonitor.changes
 
 # to disable building translations every time, comment out the
 # following CONFIG line
