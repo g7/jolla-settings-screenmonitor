@@ -71,7 +71,7 @@ Page {
 			)
 
 		   screenMonitor.typedCallWithReturn('GetChargeUptimeSeconds', [], function(uptime) {
-			   percentage = Math.abs((100*result)/uptime);
+			   percentage = Math.min(Math.abs((100*result)/uptime), 100);
 		   });
 	   });
 
