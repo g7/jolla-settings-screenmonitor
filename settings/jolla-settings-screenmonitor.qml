@@ -21,6 +21,7 @@
 import QtQuick 2.0
 import "."
 import Sailfish.Silica 1.0
+import org.freedesktop.contextkit 1.0
 import org.nemomobile.dbus 1.0
 import com.jolla.settings.system 1.0
 import org.nemomobile.systemsettings 1.0
@@ -81,6 +82,12 @@ Page {
 	   screenMonitor.typedCallWithReturn('GetLastResetCause', [], function(result) {
 		   last_reset_cause = return_text_from_cause(result);
 	   });
+   }
+
+   ContextProperty {
+	   id: batteryPercentage
+	   key: "Battery.ChargePercentage"
+	   value: 0
    }
 
    DBusInterface {
@@ -174,6 +181,12 @@ Page {
 			   width: parent.width
 			   label: qsTr("Screen usage")
 			   value: screenActive
+		   }
+
+		   DetailItem {
+			   width: parent.width
+			   label: qsTr("Battery")
+			   value: qsTrId("settings_system-la-battery_level").arg(batteryPercentage.value)
 		   }
 
 		   DetailItem {
