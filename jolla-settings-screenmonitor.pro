@@ -19,7 +19,7 @@ screenmonitor-entry.path = /usr/share/jolla-settings/entries
 screenmonitor-entry.files = settings/screenmonitor.json
 
 screenmonitor-qml.path = /usr/share/jolla-settings/pages/screenmonitor
-screenmonitor-qml.files = settings/jolla-settings-screenmonitor.qml settings/icon.png
+screenmonitor-qml.files = settings/jolla-settings-screenmonitor.qml settings/DetailItem.qml settings/icon.png
 
 screenmonitor-executable.path = /usr/bin
 screenmonitor-executable.files = service/ScreenMonitor
@@ -54,7 +54,8 @@ OTHER_FILES += \
 	service/dbus/eu.medesimo.ScreenMonitor.service \
 	service/dbus/eu.medesimo.ScreenMonitor.conf \
 	service/dbus/Makefile \
-    service/UnixTimer.vala
+    service/UnixTimer.vala \
+    settings/DetailItem.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

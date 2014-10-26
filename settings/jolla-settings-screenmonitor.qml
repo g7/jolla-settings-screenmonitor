@@ -19,6 +19,7 @@
 */
 
 import QtQuick 2.0
+import "."
 import Sailfish.Silica 1.0
 import org.nemomobile.dbus 1.0
 import com.jolla.settings.system 1.0
@@ -120,7 +121,13 @@ Page {
 		   id: content
 
 		   width: parent.width
-		   spacing: Theme.paddingLarge
+		   spacing: Theme.paddingMedium
+
+		   anchors {
+			   left: parent.left
+			   right: parent.right
+			   fill: parent
+		   }
 
 		   PageHeader {
 			   title: qsTr("Screen usage")
@@ -163,12 +170,14 @@ Page {
 
 		   }
 
-		   AboutItem {
+		   DetailItem {
+			   width: parent.width
 			   label: qsTr("Screen usage")
 			   value: screenActive
 		   }
 
-		   AboutItem {
+		   DetailItem {
+			   width: parent.width
 			   label: qsTr("Brightness")
 			   value: qsTrId("settings_system-la-battery_level").arg(brightness)
 		   }
