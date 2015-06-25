@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Thu Jun 25 2015 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.2-1
+- [service] Start the timers only after the system has been fully initialized. Fixes #2.
+
 * Sun Oct 26 2014 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.1-1
 - jolla-settings-screenmonitor.qml: Switch from AboutItem to DetailItem.
 Since Uitukka the jolla-settings specific AboutItem has been replaced with a generic
