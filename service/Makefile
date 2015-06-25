@@ -21,7 +21,7 @@ SOURCES = \
 	ScreenMonitor.vala \
 	dbus_interface.vala \
 	service.vala \
-        FileWatcher.vala \
+	FileWatcher.vala \
 	UnixTimer.vala
 
 TARGET = ScreenMonitor

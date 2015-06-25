@@ -61,7 +61,7 @@ namespace ScreenMonitor {
 
 					/* Is the display already active? If not, stop the timer */
 					if (this.GetDisplayState() == "off")
-							this.timer.stop();
+                                            this.timer.stop();
 
 					watcher.cancel();
 				}
