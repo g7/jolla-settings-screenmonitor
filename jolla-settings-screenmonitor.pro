@@ -55,7 +55,8 @@ OTHER_FILES += \
 	service/dbus/Makefile \
     service/UnixTimer.vala \
     settings/DetailItem.qml \
-    rpm/jolla-settings-screenmonitor.changes
+    rpm/jolla-settings-screenmonitor.changes \
+    service/FileWatcher.vala
 
 # to disable building translations every time, comment out the
 # following CONFIG line

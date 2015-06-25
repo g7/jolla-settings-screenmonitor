@@ -1,6 +1,6 @@
 #
 # ScreenMonitor - a simple screen usage monitor for Sailfish OS
-# Copyright (C) 2014  Eugenio "g7" Paolantonio
+# Copyright (C) 2014-2015  Eugenio "g7" Paolantonio
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@ SOURCES = \
 	ScreenMonitor.vala \
 	dbus_interface.vala \
 	service.vala \
+        FileWatcher.vala \
 	UnixTimer.vala
 
 TARGET = ScreenMonitor

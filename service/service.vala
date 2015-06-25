@@ -1,6 +1,6 @@
 /*
  * ScreenMonitor - a simple screen usage monitor for Sailfish OS
- * Copyright (C) 2014  Eugenio "g7" Paolantonio
+ * Copyright (C) 2014-2015  Eugenio "g7" Paolantonio
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -50,11 +50,22 @@ namespace ScreenMonitor {
 			this.timer = new UnixTimer();
 			
 			this.charge_uptime_timer = new UnixTimer();
-			this.charge_uptime_timer.start();
 			
-			/* Is the display already active? If so, start the timer */
-			if (this.GetDisplayState() == "on")
-				this.timer.start();
+			/* Start the timer when the system has been fully initialized */
+			FileWatcher watcher = new FileWatcher("/run/systemd/boot-status/init-done");
+			watcher.created.connect(
+				(trigger) => {
+					/* Activate the timers */
+					this.charge_uptime_timer.start();
+					this.timer.start();
+
+					/* Is the display already active? If not, stop the timer */
+					if (this.GetDisplayState() == "off")
+							this.timer.stop();
+
+					watcher.cancel();
+				}
+			);
 			
 			/* Connect to UsbModed */
 			this.usb_moded = Bus.get_proxy_sync(
@@ -78,6 +89,9 @@ namespace ScreenMonitor {
 				"com.nokia.mce",
 				"/com/nokia/mce/request"
 			);
+
+			/* Start watcher monitor */
+			watcher.start_monitor();
 		}
 
 		public void Quit() {
