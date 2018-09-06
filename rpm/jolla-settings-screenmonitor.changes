@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Thu Sep 06 2018 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.3-1
+- [settings] Move to Nemo.DBus 2.0. Fixes compatibility with Sailfish OS 2.2.1 (Nurmonjoki)+
+
 * Thu Jun 25 2015 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.2-1
 - [service] Start the timers only after the system has been fully initialized. Fixes #2.
 
