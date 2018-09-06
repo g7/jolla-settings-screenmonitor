@@ -22,7 +22,7 @@ import QtQuick 2.0
 import "."
 import Sailfish.Silica 1.0
 import org.freedesktop.contextkit 1.0
-import org.nemomobile.dbus 1.0
+import Nemo.DBus 2.0
 import com.jolla.settings.system 1.0
 import org.nemomobile.systemsettings 1.0
 
@@ -45,7 +45,7 @@ Page {
    }
 
    function update() {
-	   screenMonitor.typedCallWithReturn('GetSeconds', [], function(result) {
+	   screenMonitor.call('GetSeconds', [], function(result) {
 		   result = Math.abs(Math.round(result));
 
 		   var minutes = Math.floor(result / 60);
@@ -70,16 +70,16 @@ Page {
 				(minutes == 1) ? qsTr("%1 minute").arg(minutes) : qsTr("%1 minutes").arg(minutes)
 			)
 
-		   screenMonitor.typedCallWithReturn('GetChargeUptimeSeconds', [], function(uptime) {
+		   screenMonitor.call('GetChargeUptimeSeconds', [], function(uptime) {
 			   percentage = Math.min(Math.abs((100*result)/uptime), 100);
 		   });
 	   });
 
-	   screenMonitor.typedCallWithReturn('GetBrightness', [], function(result) {
+	   screenMonitor.call('GetBrightness', [], function(result) {
 		   brightness = result;
 	   });
 
-	   screenMonitor.typedCallWithReturn('GetLastResetCause', [], function(result) {
+	   screenMonitor.call('GetLastResetCause', [], function(result) {
 		   last_reset_cause = return_text_from_cause(result);
 	   });
    }
@@ -92,8 +92,8 @@ Page {
 
    DBusInterface {
 	   id: screenMonitor
-	   busType: DBusInterface.SystemBus
-	   destination: 'eu.medesimo.ScreenMonitor'
+	   bus: DBus.SystemBus
+	   service: 'eu.medesimo.ScreenMonitor'
 	   path: '/eu/medesimo/ScreenMonitor'
 	   iface: 'eu.medesimo.ScreenMonitor'
 
