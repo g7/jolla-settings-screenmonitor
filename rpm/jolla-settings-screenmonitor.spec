@@ -13,7 +13,7 @@ Name:       jolla-settings-screenmonitor
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    jolla-settings-screenmonitor
-Version:    1.0.3
+Version:    1.0.4
 Release:    1
 Group:      Applications/System
 License:    GPL2
@@ -21,6 +21,7 @@ URL:        http://me.medesimo.eu
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  jolla-settings-screenmonitor.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires:   nemo-qml-plugin-contextkit-qt5
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)

@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Jun 14 2020 Juanro49 <juanro.aof@gmail.com> 1.0.4-1
+- jolla-settings-screenmonitor.qml: Fix show percentages in DetailItems
+- jolla-settings-screenmonitor.yaml: Add nemo-qml-plugin-contextkit-qt5 dependency to fix compatibility with Sailfish OS 3.0.3 (Rokua)+
+- jolla-settings-screenmonitor.spec: Add nemo-qml-plugin-contextkit-qt5 dependency to fix compatibility with Sailfish OS 3.0.3 (Rokua)+
+
 * Thu Sep 06 2018 Eugenio "g7" Paolantonio <me@medesimo.eu> 1.0.3-1
 - [settings] Move to Nemo.DBus 2.0. Fixes compatibility with Sailfish OS 2.2.1 (Nurmonjoki)+
 

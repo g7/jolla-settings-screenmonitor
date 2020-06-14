@@ -160,7 +160,7 @@ Page {
 					   font.pixelSize: Theme.fontSizeHuge
 					   horizontalAlignment: Text.AlignHCenter
 					   verticalAlignment: Text.AlignVCenter
-					   text: qsTrId("settings_system-la-battery_level").arg(percentage)
+					   text: qsTrId("%1%").arg(percentage)
 				   }
 			   }
 
@@ -186,13 +186,13 @@ Page {
 		   DetailItem {
 			   width: parent.width
 			   label: qsTr("Battery")
-			   value: qsTrId("settings_system-la-battery_level").arg(batteryPercentage.value)
+			   value: qsTrId("%1%").arg(batteryPercentage.value)
 		   }
 
 		   DetailItem {
 			   width: parent.width
 			   label: qsTr("Brightness")
-			   value: qsTrId("settings_system-la-battery_level").arg(brightness)
+			   value: qsTrId("%1%").arg(brightness)
 		   }
 
 	   }
