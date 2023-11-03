@@ -71,7 +71,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}
+%{_bindir}/ScreenMonitor
 %{_sysconfdir}/dbus-1
 %{_datadir}/dbus-1
 %{_datadir}/jolla-settings
