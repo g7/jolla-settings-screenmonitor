@@ -13,7 +13,7 @@ Name:       jolla-settings-screenmonitor
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    jolla-settings-screenmonitor
-Version:    1.0.4
+Version:    1.0.5
 Release:    1
 Group:      Applications/System
 License:    GPL2
@@ -61,12 +61,12 @@ rm -rf %{buildroot}
 
 %preun
 # >> preun
-/bin/systemctl disable ScreenMonitor.service
+/usr/bin/systemctl disable ScreenMonitor.service
 # << preun
 
 %post
 # >> post
-/bin/systemctl enable ScreenMonitor.service
+/usr/bin/systemctl enable ScreenMonitor.service
 # << post
 
 %files

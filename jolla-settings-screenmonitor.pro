@@ -12,6 +12,7 @@ TEMPLATE = aux
 
 TARGET = jolla-settings-screenmonitor
 jolla-settings-screenmonitor.depends += ScreenMonitor
+screenmonitor-executable.CONFIG += no_check_exist
 
 #CONFIG += sailfishapp
 
