@@ -31,7 +31,7 @@ screenmonitor-dbus-configuration.files = service/dbus/eu.medesimo.ScreenMonitor.
 screenmonitor-dbus-service.path = /usr/share/dbus-1/system-services
 screenmonitor-dbus-service.files = service/dbus/eu.medesimo.ScreenMonitor.service
 
-screenmonitor-systemd.path = $$PREFIX/lib/systemd/system
+screenmonitor-systemd.path = $PREFIX/lib/systemd/system
 screenmonitor-systemd.files = service/dbus/ScreenMonitor.service
 
 INSTALLS += \

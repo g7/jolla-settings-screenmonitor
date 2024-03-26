@@ -38,11 +38,12 @@ Requires:
 
 # All installed files
 Files:
-  - '%{_bindir}'
+  - '%{_bindir}/ScreenMonitor'
   - '%{_sysconfdir}/dbus-1'
   - '%{_datadir}/dbus-1'
   - '%{_datadir}/jolla-settings'
-  - '/lib/systemd/system'
+  - '%{_unitdir}/ScreenMonitor.service'
+  #- '/lib/systemd/system'
 
 # For more information about yaml and what's supported in Sailfish OS
 # build system, please see https://wiki.merproject.org/wiki/Spectacle
