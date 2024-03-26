@@ -75,6 +75,6 @@ rm -rf %{buildroot}
 %{_sysconfdir}/dbus-1
 %{_datadir}/dbus-1
 %{_datadir}/jolla-settings
-%{_unitdir}/ScreenMonitor.service
+%{_unitdir}/system/*.service
 # >> files
 # << files

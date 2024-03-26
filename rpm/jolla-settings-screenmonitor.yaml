@@ -42,7 +42,7 @@ Files:
   - '%{_sysconfdir}/dbus-1'
   - '%{_datadir}/dbus-1'
   - '%{_datadir}/jolla-settings'
-  - '%{_unitdir}/ScreenMonitor.service'
+  - '%{_unitdir}/system/*.service'
   #- '/lib/systemd/system'
 
 # For more information about yaml and what's supported in Sailfish OS
