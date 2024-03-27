@@ -12,6 +12,7 @@ TEMPLATE = aux
 
 TARGET = jolla-settings-screenmonitor
 jolla-settings-screenmonitor.depends += ScreenMonitor
+screenmonitor-executable.CONFIG += no_check_exist
 
 #CONFIG += sailfishapp
 
@@ -30,7 +31,7 @@ screenmonitor-dbus-configuration.files = service/dbus/eu.medesimo.ScreenMonitor.
 screenmonitor-dbus-service.path = /usr/share/dbus-1/system-services
 screenmonitor-dbus-service.files = service/dbus/eu.medesimo.ScreenMonitor.service
 
-screenmonitor-systemd.path = /lib/systemd/system
+screenmonitor-systemd.path = /usr/lib/systemd/system
 screenmonitor-systemd.files = service/dbus/ScreenMonitor.service
 
 INSTALLS += \

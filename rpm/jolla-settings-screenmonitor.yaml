@@ -1,6 +1,6 @@
 Name: jolla-settings-screenmonitor
 Summary: jolla-settings-screenmonitor
-Version: 1.0.4
+Version: 1.0.6
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
 # http://gitorious.org/meego-developer-tools/spectacle/blobs/master/data/GROUPS
@@ -38,11 +38,11 @@ Requires:
 
 # All installed files
 Files:
-  - '%{_bindir}'
+  - '%{_bindir}/ScreenMonitor'
   - '%{_sysconfdir}/dbus-1'
   - '%{_datadir}/dbus-1'
   - '%{_datadir}/jolla-settings'
-  - '/lib/systemd/system'
+  - '%{_unitdir}/ScreenMonitor.service'
 
 # For more information about yaml and what's supported in Sailfish OS
 # build system, please see https://wiki.merproject.org/wiki/Spectacle
