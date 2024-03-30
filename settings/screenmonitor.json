@@ -1,5 +1,5 @@
 {
-    "translation_catalog": "settings-system",
+    "translation_catalog": "jolla-settings-screenmonitor",
     "entries": [
         {
             "path": "system_settings/info",
@@ -9,7 +9,7 @@
             "order": 600
         },
         {
-			"path": "system_settings/info/screenmonitor",
+            "path": "system_settings/info/screenmonitor",
             "title": "Screen usage",
             "translation_id": "settings_system-screenmonitor",
             "type": "page",
