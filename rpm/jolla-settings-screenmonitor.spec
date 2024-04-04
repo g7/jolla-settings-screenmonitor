@@ -75,6 +75,7 @@ rm -rf %{buildroot}
 %{_sysconfdir}/dbus-1
 %{_datadir}/dbus-1
 %{_datadir}/jolla-settings
+%{_datadir}/translations/%{name}-*.qm
 %{_unitdir}/ScreenMonitor.service
 # >> files
 # << files
