@@ -1,6 +1,6 @@
 name: SailfishOS App CI (aarch64, armv7hl, i486)
 env:
-  sfos_target: 4.5.0.18
+  sfos_target: latest
 
 on:
   push:
