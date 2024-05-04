@@ -49,10 +49,10 @@ jobs:
       uses: actions/checkout@v4
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/')
+      #if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
-          rpm-build-result/jolla-settings-screenmonitor-${{ github.ref_name }}-1.aarch64
-          rpm-build-result/jolla-settings-screenmonitor-${{ github.ref_name }}-1.armv7hl
-          rpm-build-result/jolla-settings-screenmonitor-${{ github.ref_name }}-1.i486
+          /workspace/RPMS/jolla-settings-screenmonitor-${{ github.ref_name }}-1.aarch64
+          /workspace/RPMS/jolla-settings-screenmonitor-${{ github.ref_name }}-1.armv7hl
+          /workspace/RPMS/jolla-settings-screenmonitor-${{ github.ref_name }}-1.i486
           jolla-settings-screenmonitor.changes
