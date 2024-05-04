@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat May 04 2024 NSC IT Solutions (NIS) <relax@ik.me> 1.0.8-1
+- Add Swedish translation (thanks to https://github.com/eson57 )
+
 * Thu Apr 04 2024 NSC IT Solutions (NIS) <relax@ik.me> 1.0.7-1
 - Fix Icon size (thanks to https://github.com/carmenfdezb )
 - Add Spanish translation (thanks to https://github.com/carmenfdezb )
