@@ -1,0 +1,58 @@
+name: SailfishOS App CI (aarch64, armv7hl, i486)
+env:
+  sfos_target: 4.5.0.16
+
+on:
+  push:
+   # tags:
+   #  - 'v*-sfos4.2'
+   branches:
+     - 'master'
+  #pull_request:
+  #  branches:
+  #    - sfos4.2
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Prepare
+      run: mkdir RPMS
+
+    - name: Build armv7hl
+      uses: coderus/github-sfos-build@master
+      with:
+        release: ${{ env.sfos_target }}
+        arch: armv7hl
+
+    - name: Build i486
+      uses: coderus/github-sfos-build@master
+      with:
+        release: ${{ env.sfos_target }}
+        arch: i486
+
+    - name: Build aarch64
+      uses: coderus/github-sfos-build@master
+      with:
+        release: ${{ env.sfos_target }}
+        arch: aarch64
+
+    - name: Upload build result
+      uses: actions/upload-artifact@v4
+      with:
+        name: rpm-build-result
+        path: RPMS
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      #if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          /workspace/RPMS/jolla-settings-screenmonitor-${{ github.ref_name }}-1.aarch64
+          /workspace/RPMS/jolla-settings-screenmonitor-${{ github.ref_name }}-1.armv7hl
+          /workspace/RPMS/jolla-settings-screenmonitor-${{ github.ref_name }}-1.i486
+          jolla-settings-screenmonitor.changes

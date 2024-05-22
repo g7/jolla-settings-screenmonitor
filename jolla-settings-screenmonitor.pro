@@ -12,6 +12,7 @@ TEMPLATE = aux
 
 TARGET = jolla-settings-screenmonitor
 jolla-settings-screenmonitor.depends += ScreenMonitor
+screenmonitor-executable.CONFIG += no_check_exist
 
 #CONFIG += sailfishapp
 
@@ -30,7 +31,7 @@ screenmonitor-dbus-configuration.files = service/dbus/eu.medesimo.ScreenMonitor.
 screenmonitor-dbus-service.path = /usr/share/dbus-1/system-services
 screenmonitor-dbus-service.files = service/dbus/eu.medesimo.ScreenMonitor.service
 
-screenmonitor-systemd.path = /lib/systemd/system
+screenmonitor-systemd.path = /usr/lib/systemd/system
 screenmonitor-systemd.files = service/dbus/ScreenMonitor.service
 
 INSTALLS += \
@@ -39,29 +40,60 @@ INSTALLS += \
 	screenmonitor-executable \
 	screenmonitor-dbus-configuration \
 	screenmonitor-dbus-service \
-	screenmonitor-systemd
+        screenmonitor-systemd
 
 OTHER_FILES += \
     rpm/jolla-settings-screenmonitor.spec \
     rpm/jolla-settings-screenmonitor.yaml \
-	service/dbus_interface.vala \
-	service/ScreenMonitor.vala \
-	service/ScreenMonitor \
-	service/UnixTimer.vala \
-	service/service.vala \
-	service/Makefile \
-	service/dbus/eu.medesimo.ScreenMonitor.service \
-	service/dbus/eu.medesimo.ScreenMonitor.conf \
-	service/dbus/Makefile \
+    service/dbus_interface.vala \
+    service/ScreenMonitor.vala \
+    service/ScreenMonitor \
+    service/UnixTimer.vala \
+    service/service.vala \
+    service/Makefile \
+    service/dbus/eu.medesimo.ScreenMonitor.service \
+    service/dbus/eu.medesimo.ScreenMonitor.conf \
+    service/dbus/Makefile \
     service/UnixTimer.vala \
     settings/DetailItem.qml \
     rpm/jolla-settings-screenmonitor.changes \
     service/FileWatcher.vala
 
-# to disable building translations every time, comment out the
-# following CONFIG line
-#CONFIG += sailfishapp_i18n
-#TRANSLATIONS += translations/jolla-settings-screenmonitor-de.ts
+TRANSLATIONS += $$files(translations/$${TARGET}-*.ts)
+TS_FILE = $${_PRO_FILE_PWD_}/translations/$${TARGET}*.ts
+HAVE_TRANSLATIONS = 0
+
+TRANSLATION_SOURCES += $$_PRO_FILE_PWD_/settings/
+
+# prefix all TRANSLATIONS with the src dir
+# the qm files are generated from the ts files copied to out dir
+for(t, TRANSLATIONS) {
+    TRANSLATIONS_IN  += $${_PRO_FILE_PWD_}/$$t
+    TRANSLATIONS_OUT += $${OUT_PWD}/$$t
+    HAVE_TRANSLATIONS = 1
+}
+
+qm.files = $$replace(TRANSLATIONS_OUT, \.ts, .qm)
+qm.path = /usr/share/translations
+qm.CONFIG += no_check_exist
+
+# update the ts files in the src dir and then copy them to the out dir
+qm.commands += lupdate -noobsolete $${TRANSLATION_SOURCES} -ts $${TS_FILE} && \
+    mkdir -p translations && \
+    [ \"$${OUT_PWD}\" != \"$${_PRO_FILE_PWD_}\" -a $$HAVE_TRANSLATIONS -eq 1 ] && \
+    cp -af $${TRANSLATIONS_IN} $${OUT_PWD}/translations || :
+
+# create the qm files
+qm.commands += ; [ $$HAVE_TRANSLATIONS -eq 1 ] && lrelease -nounfinished $${TRANSLATIONS_OUT} || :
+
+# special case: as TS_FILE serves as both source file as well as
+# the English translation source, create the en qm file from it:
+qm.files += $$replace(TS_FILE, \.ts, -en.qm)
+qm.commands += lrelease -nounfinished $$TS_FILE -qm $$replace(TS_FILE, \.ts, -en.qm)
+
+INSTALLS += qm
+
+OTHER_FILES += $$TRANSLATIONS
 
 # This is needed to compile the DBus service
 screenmonitor-service.target = ScreenMonitor
